@@ -49,13 +49,16 @@ require_once 'inc/functions.php';
 		</div>
 	</div>
 	<?php } ?>
-	<?php if(isset($_GET['aid']) and get_aname_by_id(($_GET['aid']))) { ?>
+	<?php if(isset($_GET['aid']) and get_by_id($_GET['aid'],"aname")); { ?>
 	<div class="container">
 		<form action="">
 			<div class="form-group">
 				<h3 class="activity-name">
-					<?php echo get_aname_by_id($_GET['aid']); ?>
+					<?php echo get_by_id($_GET['aid'],"aname"); ?>
 				</h3>
+				<p class="activity-limit">
+					参加人数 <?php echo get_by_id($_GET['aid'],"acur")." / ".get_by_id($_GET['aid'],"alimit"); ?>
+				<p>
 				<input type="hidden" name="aid" value="<?php echo $_GET['aid'] ?>">
 			</div>
 			<div class="form-group"><label for="id">学号</label><input type="text" class="form-control" name="id"></div>
